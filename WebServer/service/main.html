@@ -1,0 +1,211 @@
+<!--
+    Needs following data to render :
+    1. schedule events for calendars
+    2. category list
+    3. recent post
+    
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Service Name</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/js/calendar/main.js"></script>
+        <link href="/css/calendar/main.css" rel='stylesheet' />
+        <link href="css/main.css" rel='stylesheet' />
+        <style>
+            #calendar .fc-daygrid-day-events {
+                margin-top: -8px;
+            }
+            #calendar .fc-daygrid-more-link {
+                background-color: #3788d8;
+                border: 1pt solid #3788d8;
+                border-radius: 8pt;
+                color:white;
+                font-weight: 400;
+            }
+            #calendar  .fc-daygrid-day-number {
+                padding: 0px 4px 7px 4px;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calEvents = [];
+                //console.log(calEvent);
+                var t, d1, d2;
+                <% schedule.forEach(function(item, index) { %>
+                    t = "<%= item.start_date %>".split(/[- :]/);
+                    d1 = new Date(t[0], t[1]-1, t[2], t[3], t[4]);
+                    t = "<%= item.end_date %>".split(/[- :]/);
+                    d2 = new Date(t[0], t[1]-1, t[2]);
+                    calEvents.push(
+                        {
+                                title: "<%= item.title %>",
+                                start: d1 <% if(item.end_date) { %>,
+                                end: d2 <% }%>,
+                                id: <%= item.id %>
+                        }
+                    );
+                <% }); %>
+                //{ title: 'Conference', start: '2020-11-29', end: '2020-12-02'}, { title: 'Meeting', start: '2020-11-29T10:30:00', end: '2020-11-29T12:30:00'}, { title: 'Lunch', start: '2020-11-29T12:00:00'}, { title: 'Meeting', start: '2020-11-29T14:30:00'},{ title: 'Happy Hour',  start: '2020-11-29T17:30:00'}";
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    headerToolbar: {
+                        left: 'prev,next',
+                        center: 'title',
+                        right: ''
+                    },
+                    selectable: true,
+                    businessHours: true,
+                    dayMaxEvents: true, // allow "more" link when too many events
+                    events: calEvents,
+                    select: function(arg) {
+                        eventLayer_popup("#new_event", arg);
+                    },
+                    eventClick: function(arg) {
+                        eventLayer_popup("#edit_event", arg.event);
+                    },
+                    displayEventTime: false,
+                    moreLinkText: ''
+                });
+            
+                calendar.render();
+
+                //week overview
+                var WeekCalEl = document.getElementById('week_overview');
+                var wCalendar = new FullCalendar.Calendar(WeekCalEl, {
+                    initialView: 'dayGridWeek',
+                    timeZone: 'local',
+                    headerToolbar: false,
+                    selectable: true,
+                    businessHours: true,
+                    dayMaxEvents: true, // allow "more" link when too many events
+                    droppable: true,
+                    events: calEvents,
+                    select: function(arg) {
+                        eventLayer_popup("#new_event", arg);
+                    },
+                    eventClick: function(arg) {
+                        eventLayer_popup("#edit_event", arg.event);
+                    },
+                    displayEventTime: false
+                });
+            
+                wCalendar.render();
+                wCalendar.setOption('height', calendarEl.offsetHeight);
+            });
+        </script>
+    </head>
+    <body>
+        <div id="loginInfo">
+            <span id="userName"><%= session.username %></span>님 로그인하셨습니다. <a href="/logout" class='btnUI'>Logout</a>
+        </div>
+        <div id="div_top">
+            <h1>Web Planner</h1>
+        </div>
+        <div id="div_body">
+            <div id="div_left">
+                <div id="user_Control">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="#post" class="call_Pop">글쓰기</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#new_event" class="call_Pop">일정 추가</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="div_content">
+                <div id="week_overview">
+                </div>
+                <div id="calendar">
+                    <!--
+                        <iframe src='/main/calendar' frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=no vspace=0></iframe>
+                    -->
+                </div>
+    
+                <div id="recent_post">
+                    <table>
+                        <tr>
+                            <th colspan="5" id="post_header">Diary</td>
+                        </tr>
+                        <tr>
+                            <th>No. </th>
+                            <th >Title</th>
+                            <th>Date</th>
+                            <th colspan="2"></th>
+                        </tr>
+                        <% post.forEach(function(item, index) { %>
+                            <tr class="post_each">
+                                <td class='post_number'><label><%= item.id %> </label></td>
+                                <td class='post_title' id='title<%= item.id%>' onclick="if(hide<%= index %>.style.display=='none' ) {
+                                    hide<%= index %>.style.display = '';
+                                } else { hide<%= index %>.style.display = 'none'; console.log(this.className);}"><%= item.title %></td>
+                                <td class='post_date'><%= item.up_date %></td>
+                                <td class='modbtn call_Pop postbtn' href="#edit?<%= item.id %>"></td>
+                                <td class='delbtn postbtn' onClick = "location.href='/delete/<%= item.id %>'"></td>
+                            </tr>
+                            <tr id="hide<%= index %>" style="display: none;">
+                                <td colspan="5" class='post_content' id='content<%= item.id%>'><%= item.content %></td>
+                            </tr>
+                        <% }); %>
+                    </table>
+                    <script src="/js/markdown.js"></script>
+                </div>
+            </div>
+            
+        </div>
+        <!-- 팝업
+        https://webclub.tistory.com/189 -->
+        <div class="popup_layer">
+            <div class="pop_bg"></div>
+            <div id="post_popup">
+                <div class="pop_container">
+                    <div class="pop_content">
+                        <form method="post">
+                            <div class="pop_text">
+                                    <span id="popup_title">POST EDITOR</span>   <img src="img/icon_del.png" id="pop_delbtn">
+                                    <table id="pop_post_form">
+                                        <tr class = "postForm eventForm">
+                                            <td style="width: 150px; height: 50px;"><label>title</label></td>
+                                            <td><input type="text" name="title" id="pop_form_title"/></td>
+                                        </tr>
+                                        <tr class="postForm">
+                                            <td><Label>content</Label></td>
+                                            <td><textarea type="text" name="content" id="pop_form_content"></textarea></td>
+                                        </tr>
+                                        <tr class="eventForm">
+                                            <td><Label>Start Date</Label></td>
+                                            <td><input type='date' name='start'/></td>
+                                        </tr>
+                                        <tr class="eventForm">
+                                            <td><Label>End Date</Label></td>
+                                            <td><input type='date' name='end'/></td>
+                                        </tr>
+                                    </table>
+                                    <input name="action" class="hidden_args"/>
+                                    <input name="postnum" class="hidden_args"/>
+                            </div>
+                            <div class="pop_btns">
+                                <input type="submit" class="pop_btn"/>
+                                <a href="#" class="pop_btn">Close</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/popups.js"></script>
+        <div id="div_footer">
+            <span>2020-2 Adv. Web programming, Team 27</span>
+        </div>
+    </body>
+</html>

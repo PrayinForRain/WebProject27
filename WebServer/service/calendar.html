@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<script src="/js/calendar/main.js"></script>
+<link href="/css/calendar/main.css" rel='stylesheet' />
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: false,
+      editable: true,
+      selectable: true,
+      businessHours: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: [
+        
+      ],
+        eventTimeFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          meridiem: 'false'
+        }
+    });
+
+    calendar.render();
+  });
+</script>
+<style>
+
+</style>
+</head>
+<body>
+
+  <div id='calendar'></div>
+
+</body>
+</html>
