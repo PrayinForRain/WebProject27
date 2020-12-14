@@ -4,7 +4,6 @@ async function md(data) {
     // ~~text~~ : <s>
     // --text-- : <s>
     // __text__ : <u>
-    //{{{#FFFFFF text}}} : <span style="color:#FFFFFF">;
     //[[''text'']] : ''text'' (문법적용x)
 
     var result = new String(data);
@@ -25,24 +24,15 @@ function replaceMark(text, find, replace1, replace2, isLast = false) {
     var index1 = result.indexOf(find);
     var index2 = result.indexOf(find, index1+1);
     var indexPointer = 0;
-    /*
-    console.log("original text was : ");
-    console.log(result);
-    console.log("finding '" + find + "' starting from " + index1 + " and " +index2);
-    */
+
     while(result.indexOf(find) != -1) {
         index1 = result.indexOf(find, indexPointer);
         if(index1 == -1) index2 = index1;
         else index2 = result.indexOf(find, index1+1);
-        /*
-        console.log("index1 : " + index1);
-        console.log("index2 : " + index2);
-        console.log("indexPointer : " + indexPointer);
-        */
+
         if(result.indexOf(find, indexPointer) >= index2) {
             break;
         } else {
-            //console.log("[[ found at " + result.lastIndexOf("[[", index1) + "and ]] found at "+ result.indexOf("]]", index1));
             if(result.lastIndexOf("[[", index1) == -1 || result.indexOf("]]", index2) == -1) {
                 result = result.replace(find, replace1);
                 result = result.replace(find, replace2);

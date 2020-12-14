@@ -40,12 +40,6 @@ select * from 'table_name' where '날짜 컬럼' between date('start_date') and 
 ALTER TABLE table_name ADD COLUMN ex_column varchar(32) NOT NULL;
 */
 app.get('/main', restrict, function(request, response) {
-	//response.sendFile(path.join(__dirname + '/service/main.html'));
-	/*connection.query('SELECT * FROM post', function (error, results) {
-		response.send(ejs.render(data, {
-			data: results
-		}));
-	});*/
 	let session = request.session;
 	fs.readFile(__dirname + '/service/main.html', 'utf8', function (error, data) {
         connection.query('SELECT * FROM post WHERE author = ?', [request.session.loggedid], function (error, posts) {

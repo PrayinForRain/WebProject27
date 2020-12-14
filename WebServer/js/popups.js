@@ -23,12 +23,6 @@ function postLayer_popup(mode, id=0) {
     if(id != 0) {
         $('#popup_title').text("글 수정");
         $('input[name=postnum]').val(id);
-        /*var postTitle = document.getElementById("pop_form_title");
-        var titleVal = document.getElementById("title" + id);
-        var postContent = document.getElementById("pop_form_content");
-        var contentVal = document.getElementById("content" + id);*/
-        /*var postTitle = $('#pop_form_title');
-        var postContent = $('#pop_form_content');*/
         var titleVal = $('#title' + id).text();
         var contentVal = $('#content' + id).text();
         $('input[name=title]').val(titleVal);
