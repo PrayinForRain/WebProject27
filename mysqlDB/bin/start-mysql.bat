@@ -1,1 +1,0 @@
-mysql --default-character-set=utf8 -u root -p

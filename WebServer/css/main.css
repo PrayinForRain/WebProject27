@@ -282,7 +282,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%; /* 크기 */
+    width: 60%; /* 크기 */
     height: 70%;
     background-color: var(--bg-color);
     border: 5px solid var(--pal2);

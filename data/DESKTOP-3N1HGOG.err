@@ -1,0 +1,52 @@
+2020-12-12T15:01:23.106838Z 0 [System] [MY-010116] [Server] C:\Users\dldnw\Documents\GitHub\LWJ\학교\20_2_고급웹프로그래밍\실험실\mysql\bin\mysqld.exe (mysqld 8.0.22) starting as process 15632
+2020-12-12T15:01:23.124746Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2020-12-12T15:01:23.908153Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2020-12-12T15:01:24.062527Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2020-12-12T15:01:24.084622Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2020-12-12T15:01:24.097051Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2020-12-12T15:01:24.142140Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2020-12-12T15:01:24.143220Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2020-12-12T15:01:24.209139Z 0 [System] [MY-010931] [Server] C:\Users\dldnw\Documents\GitHub\LWJ\학교\20_2_고급웹프로그래밍\실험실\mysql\bin\mysqld.exe: ready for connections. Version: '8.0.22'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2020-12-12T18:18:31.705484Z 0 [System] [MY-010116] [Server] C:\Users\dldnw\Documents\GitHub\LWJ\학교\20_2_고급웹프로그래밍\실험실\mysql\bin\mysqld.exe (mysqld 8.0.22) starting as process 612
+2020-12-12T18:18:31.730106Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2020-12-12T18:18:31.732121Z 1 [ERROR] [MY-012271] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2020-12-12T18:18:31.732845Z 1 [ERROR] [MY-012278] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2020-12-12T18:18:31.733515Z 1 [ERROR] [MY-010334] [Server] Failed to initialize DD Storage Engine
+2020-12-12T18:18:31.734304Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-12-12T18:18:31.735007Z 0 [ERROR] [MY-010119] [Server] Aborting
+2020-12-12T18:18:31.735876Z 0 [System] [MY-010910] [Server] C:\Users\dldnw\Documents\GitHub\LWJ\학교\20_2_고급웹프로그래밍\실험실\mysql\bin\mysqld.exe: Shutdown complete (mysqld 8.0.22)  MySQL Community Server - GPL.
+2020-12-14T05:07:04.884395Z 0 [System] [MY-010116] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\mysqlDB\bin\mysqld.exe (mysqld 8.0.22) starting as process 13920
+2020-12-14T05:07:04.945760Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2020-12-14T05:07:05.848955Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2020-12-14T05:07:05.999447Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2020-12-14T05:07:06.030061Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2020-12-14T05:07:06.042620Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2020-12-14T05:07:06.115798Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2020-12-14T05:07:06.116578Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2020-12-14T05:07:06.168045Z 0 [System] [MY-010931] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\mysqlDB\bin\mysqld.exe: ready for connections. Version: '8.0.22'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2020-12-14T05:12:03.579366Z 0 [System] [MY-010116] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\mysqlDB\bin\mysqld.exe (mysqld 8.0.22) starting as process 20900
+2020-12-14T05:12:03.601557Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2020-12-14T05:12:03.603144Z 1 [ERROR] [MY-012271] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2020-12-14T05:12:03.603804Z 1 [ERROR] [MY-012278] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2020-12-14T05:12:03.604457Z 1 [ERROR] [MY-010334] [Server] Failed to initialize DD Storage Engine
+2020-12-14T05:12:03.605346Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-12-14T05:12:03.606404Z 0 [ERROR] [MY-010119] [Server] Aborting
+2020-12-14T05:12:03.608088Z 0 [System] [MY-010910] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\mysqlDB\bin\mysqld.exe: Shutdown complete (mysqld 8.0.22)  MySQL Community Server - GPL.
+2020-12-14T06:54:32.417432Z 0 [System] [MY-010116] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\mysqlDB\bin\mysqld.exe (mysqld 8.0.22) starting as process 12300
+2020-12-14T06:54:32.434481Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2020-12-14T06:54:33.239168Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2020-12-14T06:54:33.397407Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2020-12-14T06:54:33.421149Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2020-12-14T06:54:33.434116Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2020-12-14T06:54:33.497735Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2020-12-14T06:54:33.498519Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2020-12-14T06:54:33.558786Z 0 [System] [MY-010931] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\mysqlDB\bin\mysqld.exe: ready for connections. Version: '8.0.22'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2020-12-14T06:57:16.979886Z 0 [System] [MY-010116] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\bin\mysqld.exe (mysqld 8.0.22) starting as process 14628
+2020-12-14T06:57:16.997460Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2020-12-14T06:57:17.788709Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2020-12-14T06:57:17.947765Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2020-12-14T06:57:17.973203Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2020-12-14T06:57:17.988285Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2020-12-14T06:57:18.048633Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2020-12-14T06:57:18.049575Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2020-12-14T06:57:18.101904Z 0 [System] [MY-010931] [Server] C:\Users\dldnw\Documents\GitHub\WebProject27\bin\mysqld.exe: ready for connections. Version: '8.0.22'  socket: ''  port: 3306  MySQL Community Server - GPL.
